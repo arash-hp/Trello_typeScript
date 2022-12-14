@@ -58,12 +58,27 @@ const theme = createTheme({
     MuiButton: {
       variants: [
         {
-          props: { variant: "contained",'data-variants':'red' },
+          props: { variant: "contained" },
           style: {
-            backgroundColor: "red",
+            backgroundColor: "#1A75D2",
             color: "#fff",
+            margin: 2,
+            fontSize:'14px',
             "&:hover": {
               color: "#1A75D2",
+              backgroundColor: "#fff",
+            },
+          },
+        },
+        {
+          props: { variant: "text" },
+          style: {
+            backgroundColor: "#fff",
+            color: "#1A75D2",
+            fontSize:'14px',
+            margin: 2,
+            "&:hover": {
+              color: "#fff",
             },
           },
         },
