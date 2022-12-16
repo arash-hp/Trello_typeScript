@@ -7,7 +7,7 @@ import { Stack } from "@mui/system";
 import { Form, Formik } from "formik";
 import * as React from "react";
 import * as Yup from "yup";
-import { InputField } from "../../form/InputFeild";
+import { InputField } from "../../form/InputField";
 
 const rootStyle = {
   display: "flex",

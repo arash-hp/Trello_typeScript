@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import ContentProject from "../components/ContenProject";
+import ProjectContent from "../components/ProjectContent";
 import MainLayout from "../layouts/MainLayout";
 
 const HomePage: FC = () => {
@@ -9,7 +9,7 @@ const HomePage: FC = () => {
   return (
     <div>
       <MainLayout onClick={handelClick}>
-        <ContentProject />
+        <ProjectContent />
       </MainLayout>
       {/* <button onClick={() => navigate('/layout/55')}>Go to layout, with a number</button> */}
     </div>

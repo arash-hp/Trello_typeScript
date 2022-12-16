@@ -10,9 +10,8 @@ const MyApp: React.FunctionComponent<IApplicationProps> = (props) => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="about">
+                <Route path="dashboard">
                     <Route index element={<DashboardPage />} />
-                    <Route path=":number" element={<DashboardPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

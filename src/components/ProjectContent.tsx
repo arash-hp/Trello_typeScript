@@ -4,7 +4,7 @@ import ProjectModal from "./project/projectModal/ProjectModal";
 import DefaultProjectCard from "./project/DefaultProjectCard";
 import UserProjectCard from "./project/UserProjectCard";
 
-const ContentProject: FC = () => {
+const ProjectContent: FC = () => {
   const [open, setOpen] = useState(false);
   const [contentBoard, setContentBoard] = useState([
     {
@@ -58,4 +58,4 @@ const ContentProject: FC = () => {
   );
 };
 
-export default ContentProject;
+export default ProjectContent;

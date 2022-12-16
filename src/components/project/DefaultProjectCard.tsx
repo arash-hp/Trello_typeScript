@@ -29,6 +29,8 @@ const DefaultProjectCard=  (props: { onClick: ((event: React.MouseEvent<HTMLButt
         onClick={props.onClick}
         sx={{ color: "#fff", fontSize: "28px", cursor: "pointer" }}
       /> */}
+      
+
        <Button
         variant="text"
         onClick={props.onClick}

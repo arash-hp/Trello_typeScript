@@ -5,6 +5,7 @@ interface CardProps {
   title:any;
   image:any;
 }
+
 const UserProjectCard = ({title,image}:CardProps)=>{
     return(
         <Grid

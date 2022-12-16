@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { FC, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import BoardContent from "../components/BoardContent";
+import { Grid } from "@mui/material";
 
 export interface IAboutPageProps {}
 
-const DashboardPage: React.FunctionComponent<IAboutPageProps> = (props) => {
-    const [message, setMessage] = useState('');
-    // const { number } = useParams();
+const DashboardPage: FC = () => {
+  const [message, setMessage] = useState("");
+  // const { number } = useParams();
 
-    // useEffect(() => {
-    //     if (number) {
-    //         setMessage('The number is ' + number);
-    //     } else {
-    //         setMessage('No number was provided');
-    //     }
-    // }, []);
+  // useEffect(() => {
+  //     if (number) {
+  //         setMessage('The number is ' + number);
+  //     } else {
+  //         setMessage('No number was provided');
+  //     }
+  // }, []);
 
-    return (
-        <div>
-            <p>This is the about page.</p>
-            <p>{message}</p>
-        </div>
-    );
+  return (
+    <Grid>
+      <BoardContent />
+    </Grid>
+  );
 };
 
 export default DashboardPage;
