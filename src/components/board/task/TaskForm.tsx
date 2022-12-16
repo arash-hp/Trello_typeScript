@@ -8,8 +8,10 @@ import * as Yup from "yup";
 import { createTask } from "../../../redux/boardSlice";
 import { BoardTask } from "../../../types/api/board";
 
-export interface TaskFormProps extends Pick<FormikConfig<BoardTask>,'onSubmit'> {
-  item:BoardTask,
+export interface TaskFormProps extends Pick<FormikConfig<BoardTask>, 'onSubmit'> {
+  item: BoardTask,
+  onClick: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined,
+  open: Boolean
   // onSubmit:FormikConfig<BoardTask>['onSubmit']
 
 }
@@ -18,14 +20,8 @@ const validationSchema = Yup.object().shape({
 });
 
 
-const TaskForm:FC<TaskFormProps> = ({item,onSubmit  }) => {
-  const [open, setOpen] = useState(false);
-  const dispatch = useDispatch();
+const TaskForm: FC<TaskFormProps> = ({ item, onSubmit, onClick, open }) => {
 
-  const handelOpen = () => {
-    setOpen(true);
-  };
-  
   return (
     <Grid
       sx={{
@@ -45,11 +41,6 @@ const TaskForm:FC<TaskFormProps> = ({item,onSubmit  }) => {
       >
         <Button>Add</Button>
       </Grid>
-      {/* <Grid>
-        {titleTask?.map((task:any) => {
-          return <Task item={task} />;
-        })}
-      </Grid> */}
       <Grid
         sx={{
           display: "flex",
@@ -60,41 +51,43 @@ const TaskForm:FC<TaskFormProps> = ({item,onSubmit  }) => {
           margin: "8px",
         }}
       >
-        <Button  onClick={handelOpen} sx={{ mb: 2 }}>
+        <Button onClick={onClick} >
           Add a task
         </Button>
         {open && (
-          <Formik
-            initialValues={item}
-            onSubmit={onSubmit}
-            validationSchema={validationSchema}
-          >
-            {({ isSubmitting, dirty, isValid }) => {
-              return (
-                <Form>
-                  <Grid>
-                    <InputField
-                      name="title"
-                      label="Enter a title for this card..."
-                      fullWidth
-                    />
-                    <Grid mt={1}>
-                      <Button
-                        disabled={!isValid || !dirty}
-                        type="submit"
-                       
-                      >
-                        Add
-                      </Button>
-                      {/* <Button onClick={() => setOpen(false)}>
+          <Grid>
+            <Formik
+              initialValues={item}
+              onSubmit={onSubmit}
+              validationSchema={validationSchema}
+            >
+              {({ isSubmitting, dirty, isValid }) => {
+                return (
+                  <Form>
+                    <Grid mt={2}>
+                      <InputField
+                        name="title"
+                        label="Enter a title for new card..."
+                        fullWidth
+                      />
+                      <Grid mt={1}>
+                        <Button
+                          disabled={!isValid || !dirty}
+                          type="submit"
+
+                        >
+                          Add
+                        </Button>
+                        {/* <Button onClick={() => setOpen(false)}>
                         remove
                       </Button> */}
+                      </Grid>
                     </Grid>
-                  </Grid>
-                </Form>
-              );
-            }}
-          </Formik>
+                  </Form>
+                );
+              }}
+            </Formik>
+          </Grid>
         )}
       </Grid>
     </Grid>

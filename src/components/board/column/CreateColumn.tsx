@@ -1,4 +1,4 @@
-import { FC, useMemo, useCallback } from "react";
+import { FC, useMemo, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createColumn, createTask } from "../../../redux/boardSlice";
 import { BoardColumn, BoardTask } from "../../../types/api/board";
@@ -11,6 +11,8 @@ interface CreateColumnProps {
 
 
 const CreateColumn: FC<CreateColumnProps> = (props) => {
+  const [open, setOpen] = useState(false);
+
     const dispatch = useDispatch()
     const column = useMemo(() => {
         return {
@@ -23,9 +25,16 @@ const CreateColumn: FC<CreateColumnProps> = (props) => {
     const onSubmit: ColumnFormProps['onSubmit'] = useCallback(({title}, { resetForm }) => {
         console.log(title)
         dispatch(createColumn(title));
+        setOpen(false)
+        
     }, [])
 
-    return <ColumnForm item={column} onSubmit={onSubmit} />
+    const handelOpen = () => {
+        setOpen(true);
+      };
+      
+
+    return <ColumnForm item={column} onSubmit={onSubmit} onClick={handelOpen} open={open}/>
 };
 
 export default CreateColumn;

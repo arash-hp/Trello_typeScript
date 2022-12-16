@@ -1,4 +1,4 @@
-import { FC, useMemo, useCallback } from "react";
+import { FC, useMemo, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTask } from "../../../redux/boardSlice";
 import { BoardTask } from "../../../types/api/board";
@@ -11,6 +11,8 @@ interface CreateTaskProps {
 
 
 const CreateTask: FC<CreateTaskProps> = (props) => {
+  const [open, setOpen] = useState(false);
+
     const dispatch = useDispatch()
     const item = useMemo(() => {
         return {
@@ -22,9 +24,16 @@ const CreateTask: FC<CreateTaskProps> = (props) => {
 
     const onSubmit: TaskFormProps['onSubmit'] = useCallback(({parentId,title}, { resetForm }) => {
         dispatch(createTask({ title, parentId }));
+        setOpen(false)
     }, [])
 
-    return <TaskForm item={item} onSubmit={onSubmit} />
+    
+  const handelOpen = () => {
+    setOpen(true);
+  };
+  
+
+    return <TaskForm item={item} onSubmit={onSubmit} onClick={handelOpen} open={open}/>
 };
 
 export default CreateTask;

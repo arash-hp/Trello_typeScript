@@ -39,7 +39,7 @@ const BoardContent: FC = () => {
         >
           <Typography variant="subtitle2">{column.title}</Typography>
           {dataTasks.map((task: any) => {
-            return <Grid
+          return (task.parentId === column.id) && <Grid
             key={task.id}
               sx={{
                 background: '#fff',
