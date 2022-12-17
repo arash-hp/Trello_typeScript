@@ -8,4 +8,5 @@ export interface BoardTask {
     id: number,
     parentId: number,
     title: string,
+    order:number,
 }

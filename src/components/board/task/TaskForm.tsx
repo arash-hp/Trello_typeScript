@@ -74,7 +74,6 @@ const TaskForm: FC<TaskFormProps> = ({ item, onSubmit, onClick, open }) => {
                         <Button
                           disabled={!isValid || !dirty}
                           type="submit"
-
                         >
                           Add
                         </Button>
