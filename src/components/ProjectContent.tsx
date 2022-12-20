@@ -3,6 +3,8 @@ import { FC, useEffect, useState } from "react";
 import ProjectModal from "./project/projectModal/ProjectModal";
 import DefaultProjectCard from "./project/DefaultProjectCard";
 import UserProjectCard from "./project/UserProjectCard";
+import { PATHS } from "../configs/RoutesConfig";
+import { Link } from "react-router-dom";
 
 const ProjectContent: FC = () => {
   const [open, setOpen] = useState(false);
@@ -41,12 +43,14 @@ const ProjectContent: FC = () => {
     ]);
   };
 
-  useEffect(() => {}, [contentBoard, open]);
+  useEffect(() => { }, [contentBoard, open]);
 
   return (
     <Grid container justifyContent="center">
       {contentBoard.map((item, index) => (
-        <UserProjectCard key={index} title={item.title} image={item.image} />
+        <Link to={`${PATHS.PROJECTS}/${item.title}`} key={index}>
+          <UserProjectCard  title={item.title} image={item.image} itemId={item.id} />
+        </Link>
       ))}
       <DefaultProjectCard onClick={handleModalOpen} />
       <ProjectModal

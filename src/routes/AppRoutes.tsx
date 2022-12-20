@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { PATHS } from '../configs/RoutesConfig';
 import DashboardPage from '../pages/DashboardPage';
 import HomePage from '../pages/HomePage';
 
@@ -10,7 +11,7 @@ const MyApp: React.FunctionComponent<IApplicationProps> = (props) => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="dashboard">
+                <Route path={PATHS.PROJECT}>
                     <Route index element={<DashboardPage />} />
                 </Route>
             </Routes>

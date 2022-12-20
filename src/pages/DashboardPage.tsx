@@ -1,24 +1,24 @@
-import React, { FC, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import BoardContent from "../components/BoardContent";
 import { Grid } from "@mui/material";
+import { FC } from "react";
+import BoardContent from "../components/BoardContent";
+import image from "../assets/image/bakgroundSample.jpg";
 
-export interface IAboutPageProps {}
+
+
+
 
 const DashboardPage: FC = () => {
-  const [message, setMessage] = useState("");
-  // const { number } = useParams();
 
-  // useEffect(() => {
-  //     if (number) {
-  //         setMessage('The number is ' + number);
-  //     } else {
-  //         setMessage('No number was provided');
-  //     }
-  // }, []);
-
+// TODO : ObjectClassName
   return (
-    <Grid>
+    <Grid
+      sx={{
+        backgroundImage:
+          `url(${image})`,
+        height: "100vh",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}>
       <BoardContent />
     </Grid>
   );

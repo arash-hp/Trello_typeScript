@@ -1,3 +1,5 @@
+declare module "*.jpg";
+declare module "*.png";
 // declare module "react" {
 //     interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
 //         "data-variants"?: string;

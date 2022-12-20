@@ -25,70 +25,52 @@ const TaskForm: FC<TaskFormProps> = ({ item, onSubmit, onClick, open }) => {
   return (
     <Grid
       sx={{
-        // width: "300px",
-        background: "#eae4e4",
+        display: "flex",
+        flexDirection: "column",
+        background: "#fff",
         padding: "8px",
         borderRadius: "4px",
         margin: "8px",
       }}
     >
-      <Grid
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Button>Add</Button>
-      </Grid>
-      <Grid
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          background: "#eae4e4",
-          padding: "8px",
-          borderRadius: "4px",
-          margin: "8px",
-        }}
-      >
-        <Button onClick={onClick} >
-          Add a task
-        </Button>
-        {open && (
-          <Grid>
-            <Formik
-              initialValues={item}
-              onSubmit={onSubmit}
-              validationSchema={validationSchema}
-            >
-              {({ isSubmitting, dirty, isValid }) => {
-                return (
-                  <Form>
-                    <Grid mt={2}>
-                      <InputField
-                        name="title"
-                        label="Enter a title for new card..."
-                        fullWidth
-                      />
-                      <Grid mt={1}>
-                        <Button
-                          disabled={!isValid || !dirty}
-                          type="submit"
-                        >
-                          Add
-                        </Button>
-                        {/* <Button onClick={() => setOpen(false)}>
+      <Button variant="text" onClick={onClick} >
+        Add a task
+      </Button>
+      {open && (
+        <Grid>
+          <Formik
+            initialValues={item}
+            onSubmit={onSubmit}
+            validationSchema={validationSchema}
+          >
+            {({ isSubmitting, dirty, isValid }) => {
+              return (
+                <Form>
+                  <Grid mt={2}>
+                    <InputField
+                      name="title"
+                      label="Enter a title for new card..."
+                      fullWidth
+                    />
+                    <Grid mt={1}>
+                      <Button
+                        disabled={!isValid || !dirty}
+                        type="submit"
+                        variant="contained"
+                      >
+                        Add
+                      </Button>
+                      <Button variant="contained">
                         remove
-                      </Button> */}
-                      </Grid>
+                      </Button>
                     </Grid>
-                  </Form>
-                );
-              }}
-            </Formik>
-          </Grid>
-        )}
-      </Grid>
+                  </Grid>
+                </Form>
+              );
+            }}
+          </Formik>
+        </Grid>
+      )}
     </Grid>
   );
 };

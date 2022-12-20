@@ -79,6 +79,8 @@ const theme = createTheme({
             margin: 2,
             "&:hover": {
               color: "#fff",
+            backgroundColor: "#1A75D2",
+
             },
           },
         },

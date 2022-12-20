@@ -21,10 +21,6 @@ const BoardContent: FC = () => {
   console.log('columns', dataColumns)
   console.log('tasks', dataTasks)
 
-  // const handleSubmit = (value ) => {
-  //   dispatch(createColumn(value));
-  //   // // resetForm({ value: "" });
-  // };
 
   const onDragEnd: OnDragEndResponder = useCallback((result) => {
     if (!result.destination) return;
@@ -35,46 +31,6 @@ const BoardContent: FC = () => {
       destinationIndex: destination.index,
       destinationParentId: +destination.droppableId
     }))
-
-    // if (source.droppableId === destination.droppableId) {
-      //   const sourceTask = dataTasks.find((task) => task.order === source.index && task.parentId === +source.droppableId)
-      //   const destinationTask = dataTasks.find((task) => task.order === destination.index && task.parentId === +source.droppableId)
-    // }
-
-    // if (source.droppableId !== destination.droppableId) {
-    //   const sourceColIndex = data.findIndex((e) => e.id === source.droppableId);
-    //   const destinationColIndex = data.findIndex(
-    //     (e) => e.id === destination.droppableId
-    //   );
-
-    //   const sourceCol = data[sourceColIndex];
-    //   const destinationCol = data[destinationColIndex];
-
-    //   const sourceTask = [...sourceCol.tasks];
-    //   const destinationTask = [...destinationCol.tasks];
-
-    //   const [removed] = sourceTask.splice(source.index, 1);
-    //   destinationTask.splice(destination.index, 0, removed);
-
-    //   const newData = data.map((item, index) => {
-    //     if (index === sourceColIndex) {
-    //       return {
-    //         ...item,
-    //         tasks: sourceTask,
-    //       };
-    //     }
-    //     if (index === destinationColIndex) {
-    //       return {
-    //         ...item,
-    //         tasks: destinationTask,
-    //       };
-    //     }
-    //     return item;
-    //   });
-    // setColumnID(sourceColIndex)
-
-    // dispatch(titleColumnAction(newData));
-  
   }, [])
 
 return (
@@ -93,7 +49,8 @@ return (
                 display: "flex",
                 flexDirection: "column",
                 width: "300px",
-                background: "#eae4e4",
+                height:'fit-content',
+                background: "#ffffff73",
                 padding: "8px",
                 borderRadius: "4px",
                 margin: "8px",

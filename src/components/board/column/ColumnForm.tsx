@@ -30,13 +30,13 @@ const ColumnForm: FC<ColumnFormProps> = ({ item, onSubmit, onClick, open }) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          background: "#eae4e4",
+          background: "#fff",
           padding: "8px",
           borderRadius: "4px",
           margin: "8px",
         }}
       >
-        <Button onClick={onClick} >
+        <Button variant="contained" onClick={onClick} >
           Add a column
         </Button>
         {open && (
@@ -59,7 +59,7 @@ const ColumnForm: FC<ColumnFormProps> = ({ item, onSubmit, onClick, open }) => {
                         <Button
                           disabled={!isValid || !dirty}
                           type="submit"
-
+                          variant="contained"
                         >
                           Add
                         </Button>
